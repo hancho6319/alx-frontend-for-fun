@@ -45,11 +45,6 @@ body {
     pointer-events: none;
 }
 
-.toggle-on, .toggle-off {
-    width: 50%;
-    text-align: center;
-}
-
 .toggle-switch {
     position: absolute;
     top: 3px;
@@ -69,18 +64,34 @@ body {
     left: 33px;
 }
 
-.toggle-cb:checked + .toggle-label .toggle-on {
+.toggle-label::before {
+    content: "OFF";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
     color: white;
+    font-size: 12px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.toggle-cb:not(:checked) + .toggle-label .toggle-off {
+.toggle-cb:checked + .toggle-label::before {
+    opacity: 0;
+}
+
+.toggle-label::after {
+    content: "ON";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
     color: white;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.toggle-cb:checked + .toggle-label .toggle-off {
-    color: transparent;
-}
-
-.toggle-cb:not(:checked) + .toggle-label .toggle-on {
-    color: transparent;
+.toggle-cb:checked + .toggle-label::after {
+    opacity: 1;
 }
