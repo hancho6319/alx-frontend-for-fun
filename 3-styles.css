@@ -33,23 +33,36 @@ body {
     cursor: pointer;
 }
 
-.menu-open-button i {
-    color: white;
-    font-size: 24px;
-    transition: opacity 0.5s;
-}
-
-.menu-open-button .fa-times {
-    opacity: 0;
+.menu-open-button .menu-line {
     position: absolute;
+    height: 4px;
+    width: 28px;
+    background: white;
+    transition: transform 0.5s, opacity 0.5s;
 }
 
-.menu-open:checked + .menu-open-button .fa-bars {
+.menu-open-button .menu-line-1 {
+    top: 18px;
+}
+
+.menu-open-button .menu-line-2 {
+    top: 28px;
+}
+
+.menu-open-button .menu-line-3 {
+    top: 38px;
+}
+
+.menu-open:checked + .menu-open-button .menu-line-1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-open:checked + .menu-open-button .menu-line-2 {
     opacity: 0;
 }
 
-.menu-open:checked + .menu-open-button .fa-times {
-    opacity: 1;
+.menu-open:checked + .menu-open-button .menu-line-3 {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .menu-item {
@@ -96,4 +109,19 @@ body {
 
 .menu-open:checked ~ .menu-item:nth-child(7) {
     transform: translateY(360px);
+}
+
+/* Additional styles for the icons when the menu is open */
+.menu-open:not(:checked) + .menu-open-button:before {
+    content: '\f0c9'; /* fa-bars icon */
+    font-family: FontAwesome;
+    font-size: 24px;
+    color: white;
+}
+
+.menu-open:checked + .menu-open-button:before {
+    content: '\f00d'; /* fa-times icon */
+    font-family: FontAwesome;
+    font-size: 24px;
+    color: white;
 }
