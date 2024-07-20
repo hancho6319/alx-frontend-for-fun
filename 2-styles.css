@@ -1,0 +1,86 @@
+/* 2-styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+    margin: 0;
+}
+
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.toggle-cb {
+    display: none;
+}
+
+.toggle-label {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.toggle-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    color: white;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.toggle-on, .toggle-off {
+    width: 50%;
+    text-align: center;
+}
+
+.toggle-switch {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    transition: left 0.3s ease-in-out;
+}
+
+.toggle-cb:checked + .toggle-label {
+    background-color: #4caf50;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-switch {
+    left: 33px;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-on {
+    color: white;
+}
+
+.toggle-cb:not(:checked) + .toggle-label .toggle-off {
+    color: white;
+}
+
+.toggle-cb:checked + .toggle-label .toggle-off {
+    color: transparent;
+}
+
+.toggle-cb:not(:checked) + .toggle-label .toggle-on {
+    color: transparent;
+}
